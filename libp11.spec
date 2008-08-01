@@ -1,5 +1,5 @@
 %define major 0
-%define libname %mklibname p11 %major
+%define libname %mklibname p11_ %major
 %define develname %mklibname p11 -d
 
 Summary: Small library on top of PKCS#11
