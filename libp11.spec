@@ -1,11 +1,11 @@
-%define major 0
+%define major 1
 %define libname %mklibname p11_ %major
 %define develname %mklibname p11 -d
 
 Summary: Small library on top of PKCS#11
 Name: libp11
-Version: 0.2.4
-Release: %mkrel 3
+Version: 0.2.7
+Release: %mkrel 1
 License: LGPLv2+
 Group: System/Libraries
 Source0: http://www.opensc-project.org/files/libp11/%{name}-%{version}.tar.gz
