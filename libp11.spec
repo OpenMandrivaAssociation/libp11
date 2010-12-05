@@ -5,7 +5,7 @@
 Summary: Small library on top of PKCS#11
 Name: libp11
 Version: 0.2.7
-Release: %mkrel 2
+Release: %mkrel 3
 License: LGPLv2+
 Group: System/Libraries
 Source0: http://www.opensc-project.org/files/libp11/%{name}-%{version}.tar.gz
