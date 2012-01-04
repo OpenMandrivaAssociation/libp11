@@ -1,18 +1,17 @@
-%define major 1
+%define major 2
 %define libname %mklibname p11_ %major
 %define develname %mklibname p11 -d
 
 Summary: Small library on top of PKCS#11
 Name: libp11
-Version: 0.2.7
-Release: %mkrel 3
+Version: 0.2.8
+Release: 1
 License: LGPLv2+
 Group: System/Libraries
 Source0: http://www.opensc-project.org/files/libp11/%{name}-%{version}.tar.gz
 Buildrequires: libopenssl-devel
 Buildrequires: libltdl-devel
 URL: http://www.opensc-project.org/libp11/
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root
 
 %description
 Libp11 is a library implementing a small layer on top of PKCS#11 API to make
@@ -45,35 +44,20 @@ This package contains files needed for development with libp11.
 %make
 
 %install
-rm -rf $RPM_BUILD_ROOT
 %makeinstall_std
+rm -rf %{buildroot}/%{_libdir}/libp11.a
 
 # fix some permissions
-chmod 0644 %{buildroot}%{_libdir}/*.{la,a,so.*.*}
+chmod 0644 %{buildroot}%{_libdir}/*.so.*.*
 
 rm -fr %buildroot%_datadir/doc
 
-%if %mdkversion < 200900
-%post -n %libname -p /sbin/ldconfig
-%endif
-
-%if %mdkversion < 200900
-%postun -n %libname -p /sbin/ldconfig
-%endif
-
-%clean
-rm -rf $RPM_BUILD_ROOT
-
 %files -n %libname
-%defattr(-,root,root)
 %doc NEWS
 %{_libdir}/*.so.%{major}*
 
 %files -n %develname
-%defattr(-,root,root)
 %doc examples 
-%{_libdir}/*.a
-%{_libdir}/*.la
 %{_libdir}/*.so
 %{_libdir}/pkgconfig/libp11.pc
 %{_includedir}/*
