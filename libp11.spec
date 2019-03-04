@@ -1,4 +1,4 @@
-%define major 2
+%define major 3
 %define libname %mklibname p11_ %{major}
 %define devname %mklibname p11 -d
 
