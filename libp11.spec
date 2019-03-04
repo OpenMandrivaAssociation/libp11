@@ -4,12 +4,12 @@
 
 Summary:	Small library on top of PKCS#11
 Name:		libp11
-Version:	0.2.8
-Release:	3
+Version:	0.4.9
+Release:	1
 License:	LGPLv2+
 Group:		System/Libraries
-Url:		http://www.opensc-project.org/libp11/
-Source0:	http://www.opensc-project.org/files/libp11/%{name}-%{version}.tar.gz
+Url:		https://github.com/OpenSC/libp11
+Source0:	https://github.com/OpenSC/libp11/releases/download/%{name}-%{version}/%{name}-%{version}.tar.gz
 BuildRequires:	libltdl-devel
 BuildRequires:	pkgconfig(openssl)
 
@@ -27,7 +27,6 @@ Group:		System/Libraries
 This package contains library files for libp11.
 
 %files -n %{libname}
-%doc NEWS
 %{_libdir}/libp11.so.%{major}*
 
 #----------------------------------------------------------------------------
@@ -50,14 +49,14 @@ This package contains files needed for development with libp11.
 #----------------------------------------------------------------------------
 
 %prep
-%setup -q
+%autosetup -p1
 
 %build
-%configure2_5x --disable-static
-%make
+%configure --disable-static
+%make_build
 
 %install
-%makeinstall_std
+%make_install
 
 rm -fr %{buildroot}%{_datadir}/doc
 
