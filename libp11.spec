@@ -43,6 +43,7 @@ This package contains files needed for development with libp11.
 %files -n %{devname}
 %doc examples
 %{_libdir}/*.so
+%{_libdir}/engines-*/*.so
 %{_libdir}/pkgconfig/libp11.pc
 %{_includedir}/*
 
