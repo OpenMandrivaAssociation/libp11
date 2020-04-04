@@ -4,7 +4,7 @@
 
 Summary:	Small library on top of PKCS#11
 Name:		libp11
-Version:	0.4.9
+Version:	0.4.10
 Release:	1
 License:	LGPLv2+
 Group:		System/Libraries
@@ -12,6 +12,8 @@ Url:		https://github.com/OpenSC/libp11
 Source0:	https://github.com/OpenSC/libp11/releases/download/%{name}-%{version}/%{name}-%{version}.tar.gz
 BuildRequires:	libltdl-devel
 BuildRequires:	pkgconfig(openssl)
+BuildRequires:	pkgconfig(p11-kit-1)
+%rename		engine_pkcs11
 
 %description
 Libp11 is a library implementing a small layer on top of PKCS#11 API to make
@@ -28,6 +30,8 @@ This package contains library files for libp11.
 
 %files -n %{libname}
 %{_libdir}/libp11.so.%{major}*
+# (tpg) these are engine plugins
+%{_libdir}/engines-*/*.so
 
 #----------------------------------------------------------------------------
 
@@ -43,7 +47,6 @@ This package contains files needed for development with libp11.
 %files -n %{devname}
 %doc examples
 %{_libdir}/*.so
-%{_libdir}/engines-*/*.so
 %{_libdir}/pkgconfig/libp11.pc
 %{_includedir}/*
 
@@ -53,7 +56,10 @@ This package contains files needed for development with libp11.
 %autosetup -p1
 
 %build
-%configure --disable-static
+%configure \
+	--disable-static \
+	--with-pkcs11-module
+
 %make_build
 
 %install
