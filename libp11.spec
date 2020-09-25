@@ -10,6 +10,8 @@ License:	LGPLv2+
 Group:		System/Libraries
 Url:		https://github.com/OpenSC/libp11
 Source0:	https://github.com/OpenSC/libp11/releases/download/%{name}-%{version}/%{name}-%{version}.tar.gz
+# (tpg) detect OpenSSL 3.0.x
+Patch0:		libp11-0.4.10-openssl3.patch
 BuildRequires:	libltdl-devel
 BuildRequires:	pkgconfig(openssl)
 BuildRequires:	pkgconfig(p11-kit-1)
@@ -55,6 +57,8 @@ This package contains files needed for development with libp11.
 
 %prep
 %autosetup -p1
+# (tpg) needed for OpenSSL 3.0.x patch
+autoreconf -fiv
 
 %build
 %configure \

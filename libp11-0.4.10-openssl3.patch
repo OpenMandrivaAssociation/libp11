@@ -1,0 +1,13 @@
+diff -Naur libp11-0.4.10/configure.ac libp11-0.4.10.tpg/configure.ac
+--- libp11-0.4.10/configure.ac	2019-04-04 18:29:33.000000000 +0000
++++ libp11-0.4.10.tpg/configure.ac	2020-09-25 13:53:45.810632360 +0000
+@@ -32,6 +32,9 @@
+ # issues with applications linking to new openssl, old libp11, and vice versa
+ case "`$PKG_CONFIG --modversion --silence-errors libcrypto || \
+ 	$PKG_CONFIG --modversion openssl`" in
++	3.0.*) # Predicted engines directory prefix for OpenSSL 3.0.x
++	    LIBP11_LT_OLDEST="3"
++	    debian_ssl_prefix="openssl-3.0.0";;
+ 	1.1.*) # Predicted engines directory prefix for OpenSSL 1.1.x
+ 	    LIBP11_LT_OLDEST="3"
+ 	    debian_ssl_prefix="openssl-1.1.0";;
