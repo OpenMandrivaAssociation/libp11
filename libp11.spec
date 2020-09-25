@@ -5,7 +5,7 @@
 Summary:	Small library on top of PKCS#11
 Name:		libp11
 Version:	0.4.10
-Release:	1
+Release:	2
 License:	LGPLv2+
 Group:		System/Libraries
 Url:		https://github.com/OpenSC/libp11
@@ -66,4 +66,3 @@ This package contains files needed for development with libp11.
 %make_install
 
 rm -fr %{buildroot}%{_datadir}/doc
-
