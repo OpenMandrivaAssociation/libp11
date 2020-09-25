@@ -24,6 +24,7 @@ using PKCS#11 implementations easier.
 %package -n %{libname}
 Summary:	Library files for libp11
 Group:		System/Libraries
+Requires:	p11-kit-trust
 
 %description -n %{libname}
 This package contains library files for libp11.
