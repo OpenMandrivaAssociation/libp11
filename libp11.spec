@@ -12,6 +12,11 @@ Url:		https://github.com/OpenSC/libp11
 Source0:	https://github.com/OpenSC/libp11/releases/download/%{name}-%{version}/%{name}-%{version}.tar.gz
 # (tpg) detect OpenSSL 3.0.x
 Patch0:		libp11-0.4.10-openssl3.patch
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	libltdl-devel
 BuildRequires:	pkgconfig(openssl)
 BuildRequires:	pkgconfig(p11-kit-1)
