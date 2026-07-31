@@ -4,14 +4,14 @@
 
 Summary:	Small library on top of PKCS#11
 Name:		libp11
-Version:	0.4.10
-Release:	4
+Version:	0.4.19
+Release:	1
 License:	LGPLv2+
 Group:		System/Libraries
 Url:		https://github.com/OpenSC/libp11
 Source0:	https://github.com/OpenSC/libp11/releases/download/%{name}-%{version}/%{name}-%{version}.tar.gz
 # (tpg) detect OpenSSL 3.0.x
-Patch0:		libp11-0.4.10-openssl3.patch
+# dropped (no longer applies): Patch0:		libp11-0.4.19-openssl3.patch
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libtool-base
